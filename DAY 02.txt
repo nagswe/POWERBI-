@@ -1,0 +1,33 @@
+DAY 02
+
+New Visual :- Insert the new Visual in a page or report
+Clustered Column chart
+   Fields :- Columns (X,Y, Legend, Tooltip etc,.) 
+   Formats :- Fix the size of Visual (Colour), Format
+   Analysis :- Max,Min,Avg Line
+
+   X axis is used for names exp category names ,product names, state id customer name
+   y axis is used for amounts  exp sales amount, salary, qty , number of products
+   Legendry is used for catergory names ex product names state id
+   Tooltip is used for only values
+
+X AXIS STATE ID
+Y AXIS SUM OF QTY
+Legendry order status
+Small Multiples Product name
+tooltip Total amount
+go to format visual data table on
+
+go to table create measure 
+Total Qty= SUM('order[Qty]'
+   
+
+
+This Report Dta is E-Commerce Data
+Total Orders Add value count order id
+Total Qty is Sum of qty
+Total amount is 
+
+
+2 Total Orders = count('order' [Order_ID])
+     

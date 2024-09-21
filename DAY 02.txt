@@ -19,7 +19,7 @@ tooltip Total amount
 go to format visual data table on
 
 go to table create measure 
-Total Qty= SUM('order[Qty]'
+Total Qty= SUM('order'[Qty])
    
 
 

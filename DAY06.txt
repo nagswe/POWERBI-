@@ -1,0 +1,19 @@
+
+example 1
+
+Total Units = sum(sales[units])
+
+we want to see the pen total value
+pen qty=CALCULATE(SUM(Sales[Units]),'PRODUCT'[ProductName]="pen")
+
+qty = Sales[Units]*1.10
+
+Date Table = calenderauto()
+
+Date Table = calendar("2024-01-01" , "2024-01-10")
+
+Date table = CALENDAR(MIN(Sales[OrderDate]),MAX(Sales[OrderDate]))
+
+PN TABLE = SUMMARIZECOLUMNS('Product'[ProductName],'Product'[UnitPrice], "Total units",SUM(Sales[Units]))
+
+W_data = CALCULATETABLE(Sales,Sales[R_id]="W")

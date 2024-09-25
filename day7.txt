@@ -1,0 +1,74 @@
+Building Block of Power BI?
+--> Dataset :- Collections of the Data from Data source (power query+ Power Pivot)
+--> Report :- Collection of visual in multi pages
+--> Dashboard :- Collection of visual in single page
+--> Visualization :- Raw data to Visual Data ,Pie , Bar, Line , area KPI etc ...
+--> Tile :- Single Visual Tile
+total amount by ProductName in chart (tile)
+
+
+Building Block of Power BI Desktop?
+
+Get Data (Power Query)
+Fields
+Visual Pane
+Views(Data, Report, Model)
+
+
+Get Data:- Import data from Diff Data source
+
+Field :- Original Table :- Import table from Data source
+              Original Columns
+                     Text Columns 
+                     Number Columns 
+                     Date Columns
+
+              Calculate Columns
+                     Text Columns 
+                     Number Columns 
+                     Date Columns
+              Calculate Measure
+Calculate Tables :-  Create Table by using DAX from Given Data
+               Original Columns
+                     Text Columns 
+                     Number Columns 
+                     Date Columns
+
+              Calculate Columns
+                     Text Columns 
+                     Number Columns 
+                     Date Columns
+
+We want Particular Bank Credit card details create table use dax function
+
+DCB_Data = CALCULATETABLE('Credit Card Data','Credit Card Data'[Issuing Bank]="DCB")
+
+We want Credit Card data issue date create column using dax
+
+issue year1 = YEAR('Credit Card Data'[Issue Date])
+
+we want to calculate how many years between issue date and experidate create column
+
+No Of year = YEARFRAC([Issue Date],[Expiry Date],1)
+
+example for active and inactive accounts using column
+
+Card Status = IF([Expiry Date]>=TODAY(),"Active","Inactive")
+
+How many cards count active and inactive calculate create measure
+Active Cards = CALCULATE(COUNT('Credit Card Data'[Card Number]),'Credit Card Data'[card status]="Active")
+
+go to active card
+difference card account with district wise
+
+create table view and see the active and inactive cards
+select card status and 
+
+
+take bar graph select the card name and card limit and select the card status to see active and inactive
+
+
+
+
+
+ 

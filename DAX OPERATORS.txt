@@ -1,0 +1,44 @@
+DAX OPERATORS
+
+Airthmetic operators :-
+
++ : Total paid = Emp[SAL]+Emp[COMM] Total paid1 = Emp[SAL]+Emp[COMM]+Emp[DEPTNO] Create measure T_sal and total comm and after add the two mesaure
+
+T_sal = SUM(Emp[SAL]) , T_comm = SUM(Emp[COMM]) and after add the two measures Total paid2 = [T_sal]+[T_comm]
+
+- Total paid = Emp[SAL]-Emp[COMM]
+
+* Total paid = Emp[SAL]*Emp[COMM]
+
+/ Total paid = Emp[SAL]/Emp[COMM]
+
+^ EXP = 2^3
+
+Comparison Operators
+Create a function calculate measure select ex1: sal, job, commission ex2: dep, sal, comm
+
+=  Analyst = CALCULATE(SUM(Emp[SAL]),Emp[JOB]="Analyst") ex:Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]=30)
+
+> Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]>30)
+
+< Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]<30)
+
+>= Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]>=30)
+
+<= Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]<=30)
+
+<>  Analyst = CALCULATE(SUM(Emp[SAL]),Emp[JOB]<>"Analyst") Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]<>30)
+
+Text and logical operators
+
+& -> Concatenate two or more value to single
+EX: Concatenate = Emp[ENAME]& "Working as a " &Emp[JOB]
+
+select depno,job,sal,commision
+
+&& Dept_20&clerk_sal = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]=20 && Emp[JOB]="CLERK")
+
+|| Dept_20&clerk_sal = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]=20 || Emp[JOB]="CLERK")
+
+IN Dept_20&clerk_sal = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO] IN {10,30})
+

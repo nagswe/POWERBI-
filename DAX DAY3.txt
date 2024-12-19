@@ -1,0 +1,33 @@
+DAX DAY3
+
+CALENDAR(startdate and end date)
+
+DT = CALENDAR("2023-01-01","2023,12,31")
+
+click on new table
+
+DY_DateTable = CALENDAR(MIN(Data[OrderDate]),MAX(Data[OrderDate]))
+CALENDAR(MIN(Data[OrderDate]),MAX(Data[currentdate]))
+create measure
+
+Current Date = TODAY()
+
+Current Date = TODAY()-1
+
+click table
+
+Last 10 days DT = CALENDAR(TODAY()-10,TODAY())
+Last 10 days DT = CALENDAR(TODAY()-2010,TODAY())
+create new layout
+create relation to last 10 days table to data table
+
+select last10 days-date and datatable
+
+Table = CALENDARAUTO()
+FY APL-2023 TO MAR -2024 --FY23
+
+CALENDAR
+Pass the start date and end date 
+calendar(sdate,edate)
+calendar ("2023-01-01","2023-12-31") 
+ 

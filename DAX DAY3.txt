@@ -7,14 +7,16 @@ DT = CALENDAR("2023-01-01","2023,12,31")
 click on new table
 
 DY_DateTable = CALENDAR(MIN(Data[OrderDate]),MAX(Data[OrderDate]))
+
 CALENDAR(MIN(Data[OrderDate]),MAX(Data[currentdate]))
+
 create measure
 
 Current Date = TODAY()
 
 Current Date = TODAY()-1
 
-click table
+click table 
 
 Last 10 days DT = CALENDAR(TODAY()-10,TODAY())
 Last 10 days DT = CALENDAR(TODAY()-2010,TODAY())

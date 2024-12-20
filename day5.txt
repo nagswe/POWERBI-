@@ -1,0 +1,54 @@
+DATE YEAR QUATER MONTH DAY
+
+Date:- Single Date
+
+Date(year,month,day)
+
+20-04-2023
+
+create column
+
+Date 1 = DATE(2024,04,20)
+
+DT = CALENDAR(DATE(2023,01,01),DATE(2023,12,31))
+
+I want to see the 02-jun-2019 --> qty
+create measre
+
+02-jun-2019 = CALCULATE(SUM(Data[OrderQuantity]), FILTER('Data',Data[OrderDate]=DATE(2019,06,02)))
+
+Year :- extracts year from date
+
+CAuto = calendarauto create table
+
+create column these formulas
+
+yyy = YEAR('calender auto'[Date])
+
+yyyy = YEAR(TODAY())
+
+Q-1 --> jan - mar
+Q-2 --> APL-JUN
+Q-3 --> JUL-SEP
+Q-4 --> OCT-DEC
+
+QTR = QUARTER('calender auto'[Date])
+
+MONTH = MONTH('calender auto'[Date])
+
+DAY = DAY('calender auto'[Date])
+
+Column = 'calender auto'[Date].[Date]
+
+month_name = FORMAT('calender auto'[Date],"mmm")
+
+Date_id = FORMAT('calender auto'[Date],"YYYYMMDD")
+
+existing orderdate for orderid
+
+DID_F = FORMAT('Data'[OrderDate],"YYYYMMDD")
+
+
+
+
+

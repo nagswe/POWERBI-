@@ -8,9 +8,9 @@ Date(year,month,day)
 
 create column
 
-Date 1 = DATE(2024,04,20)
+Date 1 = DATE(2024,04,20) use cloumn
 
-DT = CALENDAR(DATE(2023,01,01),DATE(2023,12,31))
+ CREATE TABLE DT = CALENDAR(DATE(2023,01,01),DATE(2023,12,31)) use table
 
 I want to see the 02-jun-2019 --> qty
 create measre
@@ -48,6 +48,15 @@ existing orderdate for orderid
 
 DID_F = FORMAT('Data'[OrderDate],"YYYYMMDD")
 
+Day_name = FORMAT(cauto[Date],"DDDD")
+
+Created date = DATE(cauto[YYYY],CAUTO[MONTH],CAUTO[DAY])
+
+mmm-yyyy = format(cauto[DATE], "MMM-YY")
+
+Date5 = cauto[day] &"-"&cauto[month]&"-"cauto[yyyy]
+
+ 
 
 
 

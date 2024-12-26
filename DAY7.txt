@@ -1,0 +1,69 @@
+DAY7
+
+Sort by Other Columns:-
+----------------------
+
+'''''''''''''''
+
+Date = CALENDAR(DATE(2023,02,12),DATE(2024,06,12))
+
+month_name = FORMAT('Date'[Date],"mmm")
+
+month = MONTH('Date'[Date])
+
+Day_Name
+
+SUN
+
+SAT
+
+day = DAY('Date'[Date])
+
+day_name = FORMAT('Date'[Date],"ddd")
+
+weekday = WEEKDAY('Date'[Date],1)
+
+year steps
+
+mmm-yyy = FORMAT(cauto[Date],"mmm-yyyy")
+
+yyyymm = FORMAT(cauto[Date],"yyyymm")
+
+fiscal steps
+
+
+concate = cauto[day] & "-" & cauto[month] & "-" & cauto[year]
+
+4,1
+5,2
+6,3
+
+month = MONTH('Date'[Date])
+
+Fiscal = SWITCH('dt[month],4,1,5,2,6,3,7,4,8,5,9,6,10,7,11,8,12,9,1,102,11,3,12)
+
+
+
+weekday and weeknum
+
+weekday : Return the values from 1 to 7 based Day
+
+sun-1
+sat-7
+
+
+DT = CALENDAR("2023-01-01","2023,12,31")
+syntax = weekday(TN[Date_column],1)
+Day_name = FORMAT('Date'[Date],"dddd")
+
+1--> sun_sat
+2--> mon_sun
+3--> tue_mon
+
+Weeknum = Return the values or count no of week in year or find the current week number
+
+week_num = WEEKNUM(DT[Date],1)
+week_num = WEEKNUM(today(),1)
+
+
+

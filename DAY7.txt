@@ -25,7 +25,7 @@ weekday = WEEKDAY('Date'[Date],1)
 
 year steps
 
-mmm-yyy = FORMAT(cauto[Date],"mmm-yyyy")
+mmm-yyyy = FORMAT(cauto[Date],"mmm-yyyy")
 
 yyyymm = FORMAT(cauto[Date],"yyyymm")
 
@@ -65,5 +65,11 @@ Weeknum = Return the values or count no of week in year or find the current week
 week_num = WEEKNUM(DT[Date],1)
 week_num = WEEKNUM(today(),1)
 
+edate = EDATE(TODAY(),0)
+edate = EDATE(TODAY(),1)
+edate = EDATE(TODAY(),-1)
 
+edate = EDATE(TODAY(),-4)
+
+emonth = Eomonth(TODAY(),0)
 

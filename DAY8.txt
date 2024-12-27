@@ -1,0 +1,71 @@
+DAY8
+
+TODAY = TODAY()-1
+
+TODAY = TODAY()-10
+
+TODAY = TODAY()+1
+
+TODAY = TODAY()+10
+
+NOW = NOW()
+
+UTCTODAY=UTCTODAY()
+
+UTCNOW = UTCNOW()
+
+time = TIME(9,30,2)
+
+hour = HOUR('Data'[now])
+
+
+min = MINUTE('Data'[now])
+
+ss = SECOND('Data'[now])
+
+time1 = TIME('Data'[hour],'Data'[min],'Data'[ss])
+
+DATEVALUE VS TIMEVALUE
+
+"2023-05-03"
+
+DATE_1 = DATE(2023,04,20)
+
+datevalues = DATEVALUE('Data'[DATE_1])
+
+Time IN TEXT = "16:25:45"
+
+Convert time in text to time =
+
+create measure 
+
+Total_qty = SUM('Order'[Qty])
+
+create coloumn
+
+TA = [Qty]*[Rate]
+
+CREATE MEASURE
+
+Total sales_sumx =  SUMX('order',[QTY]*[RATE]) 
+
+TOTAL1 = SUMX('Order',[Qty]*[Rate]-'Order'[tax])
+
+create measure 
+
+laptopqty = SUMX(FILTER('Order','Order'[Product Name]="laptop"),[Qty])
+
+qty1 = SUMX('Order',[Qty])
+
+qty1 = SUM('Order',[Qty])
+
+
+
+
+
+
+
+
+
+
+

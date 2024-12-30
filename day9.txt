@@ -1,0 +1,72 @@
+aggregate functions maximum will be used measures
+
+day 9
+
+MAX : Returns the largest numeric value in a column or between two scalar expressions
+
+ex: max = MAX([Qty])
+
+Data types
+
+Text
+Number
+Date
+Boolean (True/false)
+
+create column
+
+date = SWITCH([Product Name],"laptop",TODAY()-3,"tab",TODAY()-2,"Mobile",TODAY()-1,TODAY())
+
+create column
+Boolean_cn = IF([Product Name]="laptop",TRUE(),FALSE())
+
+createcolumn
+max1 = MAX('Order'[Qty])
+
+max1 = MAX('Order'[Date])
+
+max1 = MAX('Order'[Product name])
+max function is applied for boolean
+
+
+MAXA : Returns the largest value in a column
+
+MAXXA = MAXA('Order'[Boolean_cn])
+
+
+MAXX : Evaluates an expression for each row of a table and returns the largest numeric value
+
+exp: maxx = MAXX('Order',[Qty]*[Rate]-'Order'[tax])
+
+ MAXX1 = MAXX(FILTER('Order',[Product Name]="Laptop"),[Qty])
+
+MIN : MIN('Order'[Qty])
+min = MIN('Order'[Product Name])
+
+
+MINA : mina = MINA('Order'[Qty])
+mina = MINA('Order'[Boolean_cn])
+
+
+MINX : MINX(FILTER('Order',[Product Name]="tab"),[Qty])
+
+average = AVERAGE('Order'[Qty])
+
+
+AVERAGEA : ('Order'[Boolean_cn])
+
+
+AVERAGEX : AVERAGEX(FILTER('Order',[Product Name]="tab"),[Qty])
+
+COUNT = count = COUNT('Order'[Qty])
+
+COUNTA = counta = COUNTA('Order'[boolean])
+
+COUNTAX = countax = COUNTAX(FILTER('Order',[State_Id]="ap"),[boolean])
+
+COUNTBLANK = COUNTBLANK('Order'[Order_ID])
+
+COUNTTROWS = COUNTROWS('Order')
+
+ 
+COUNTX = COUNTX(FILTER('Order',[State_Id]="ap"),[boolean])

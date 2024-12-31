@@ -1,0 +1,28 @@
+day 10
+
+COUNT = COUNT('Order'[Product Name])
+
+DISTINCOUNT = DISTINCTCOUNT('Order'[Product Name])
+
+
+DISTINCOUNTNOBLANK = DISTINCTCOUNTNOBLANK('Order'[Product Name])
+
+CONCATENATE = CONCATENATE('Order'[Product Name],'Order'[State_Id])
+
+& = [Product Name] & [State_Id]
+
+BOOLEAN = IF('Order'[Product Name] IN {"LAPTOP","TAB"},TRUE(),FALSE())
+
+PN&BO = CONCATENATE([Product Name],[BOOLEAN])
+
+CONCATENATEX = CONCATENATEX('Order',[Product Name],",",[Product Name],ASC)
+
+ CREATE TABLE UNIQUE VALUES = USE DISTINCT OR FILETERS OR VALUES
+
+CREATE MEASURE 
+PRODUCTLIST = CONCATENATEX(DISTINCT('Order'[Product Name]),[Product Name],",",[Product Name],ASC)
+
+state list = CONCATENATEX('Sheet2',[State_id] & "=" & [State Name],",",[State_id],ASC)
+
+COMBINEVALUES = COMBINEVALUES(" &" ,"order_id is" & [Order_ID],"p_name" & [Product Name],"state_id" & [State_Id],"qty" & [Qty],"order_status" & [Order_status]&".")
+

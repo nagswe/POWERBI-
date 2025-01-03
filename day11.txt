@@ -1,0 +1,58 @@
+day11
+
+LEN = LEN('Order'[Product Name])
+
+LEFT : LEFT('Order'[Product Name],1)
+
+RIGHT : RIGHT('Order'[Product Name],3)
+
+MID : MID('Order'[Product Name],2,4)
+
+TRIM : TRIM("   ROHIT  SHARMA  ")
+
+UPPER : UPPER('Order'[Product Name])
+
+LOWER : LOWER('Order'[Product Name])
+
+UPPER(LEFT('Order'[Product Name],1)&LOWER(RIGHT('Order'[Product Name],5)))
+
+REPLACE : REPLACE('Order'[Product Name],2,4,"*")
+
+SUBSTITUTE : SUBSTITUTE('Order'[Product Name],"a","@")
+
+REPT: REPT("india",3)
+
+SEARCH : SEARCH("b",'Order'[Product Name],1,0)
+
+FIND : FIND("A",'Order'[Product Name],1,0)
+
+UNICHAR: UNICHAR(96)
+
+UNICODE: UNICODE("a")
+
+fixed = FIXED('Order'[Total_amount],0,0)
+
+EXACT = EXACT('Order'[Product Name],"laptop")
+
+diff = DATEDIFF("1995-01-05",TODAY(),year)
+
+diff = DATEDIFF("1995-01-05",TODAY(),month)
+
+diff = DATEDIFF("1995-01-05",TODAY(),quater)
+
+diff = DATEDIFF("1995-01-05",TODAY(),day)
+
+yearfrac = YEARFRAC("1992-08-15",TODAY(),1)
+
+yearfrac = YEARFRAC("1992-08-15",TODAY(),1)*12
+
+
+
+
+
+
+
+
+
+
+

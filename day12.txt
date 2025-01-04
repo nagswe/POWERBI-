@@ -1,0 +1,54 @@
+day12
+
+Laptop qty = CALCULATE(SUM('Order'[Qty]),'Order'[Product Name]="laptop")
+
+Laptop qty1 = CALCULATE(SUM('Order'[Qty]),'Order'[Product Name]="laptop",'Order'[State_Id]="ap")
+
+Laptop qty3 = CALCULATE(SUM('Order'[Qty]),FILTER('Order','Order'[Product Name]="laptop"))
+
+calculate = CALCULATETABLE('Order')
+
+calculate = CALCULATETABLE('Order','Order'[Product Name]="laptop")
+
+laptopsales = SUMX(FILTER('Order','Order'[Product Name]="laptop"),[Qty])
+
+
+laptopsales1 = CALCULATE(SUM('Order'[Qty]),FILTER('Order','Order'[Product Name]="laptop"))
+
+FILTER = FILTER('Order',[Product Name]="laptop")
+
+qty tab1  = CALCULATE(SUM('Order'[Qty]),'Order'[Product Name]="tab")
+
+qty tab2 = CALCULATE(SUM('Order'[Qty]),FILTER('Order','Order'[Product Name]="tab"))
+
+qty tab3 = CALCULATE(SUM('Order'[Qty]),FILTER(ALL('Order'),'Order'[Product Name]="tab"))
+
+lapandtab = CALCULATE([total qty],FILTER('Order','Order'[Product Name] IN {"laptop","tab"}))
+
+CONTAINS = CONTAINS('Order','Order'[Product Name],"laptop")
+
+CONTAINSTRING = CONTAINSSTRING([Product Name],"laptop")
+
+ISBLANK : ISBLANK(BLANK())
+
+ISEMPTY : ISEMPTY('Order') 
+
+Table = FILTER('Order','Order'[Product Name]="BUS")
+ISEMPTY('TABLE')
+
+Column = [Order_ID]-5
+Column 2 = [Order_ID]/[Column]
+ISERROR : ISERROR('Order'[Column 2])
+
+
+
+
+ISEVEN : ISEVEN('Order'[Order_ID])
+
+ISOOD : ISODD('Order'[Order_ID])
+
+Measure = CALCULATE(SUM('Order'[Qty]),ISODD('Order'[Order_ID])=TRUE())
+
+
+
+

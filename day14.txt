@@ -1,0 +1,69 @@
+day13
+
+ISBLANK : ISBLANK(BLANK())
+
+ISEMPTY : ISEMPTY('Order') 
+
+Table = FILTER('Order','Order'[Product Name]="BUS")
+ISEMPTY('TABLE')
+
+Column = [Order_ID]-5
+Column 2 = [Order_ID]/[Column]
+ISERROR : ISERROR('Order'[Column 2])
+
+
+ISEVEN : ISEVEN('Order'[Order_ID])
+
+ISOOD : ISODD('Order'[Order_ID])
+
+Measure = CALCULATE(SUM('Order'[Qty]),ISODD('Order'[Order_ID])=TRUE())
+
+
+cumulative = IF([Order_ID]<5, "A",FORMAT('Order (2)'[Order_ID],""))
+
+ISTEXT = ISTEXT("ROHIT")
+
+ISNONTEXT = ISNONTEXT(20) , ISNONTEXT("KIRAN")
+
+ISNUMBER = ISNUMBER(123) ,ISNUMBER("KIRAN")
+
+USERNAME = USERNAME()
+
+USERPRINICIPALNAME = USERPRINICIPALNAME()
+
+USEROBJECTID = USEROBJECTID()
+
+AND = AND('Order'[Product Name]="LAPTOP",'Order'[State_Id]="KA")
+
+
+OR = OR('Order'[Product Name]="LAPTOP",'Order'[State_Id]="KA")
+
+NOT = NOT('Order'[Product Name]="LAPTOP")
+
+CREATE TABLE USING ENTER DATA
+
+IF = IF('Table'[SALES]>=400,"GOOD","BAD")
+
+IF('Order'[Qty]<10,"LOW",IF('Order'[Qty]>40,"HIGH","MEDIUM"))
+
+GEN = IF('Order'[Product Name] IN{"LAPTOP","TAB"},"M","F")
+
+GENNAME = IF('Order'[Column]="M","MALE","FEMALE")
+
+PID = IF('Order'[Product Name]="MOBILE","MB",IF('Order'[Product Name]="LAPTOP","LAP",IF('Order'[Product Name]="TAB","TB","KB")))
+
+
+SWITCH = SWITCH('Order'[Product Name],"MOBILE","MB","LAPTOP","LAP","TAB","TB","KB")
+
+TRUE = TRUE()
+
+FALSE = FALSE()
+
+BLANK = BLANK()
+
+COALESCE = COALESCE(BLANK(),BLANK(),5,BLANK())
+
+
+
+
+

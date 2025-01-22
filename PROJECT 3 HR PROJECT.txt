@@ -1,0 +1,34 @@
+PROJECT 3 HR PROJECT
+
+OPEN POWERBI DESKTOP
+LOAD THE DATA
+CLEAN THE DATA
+
+TASKS
+------------
+1. TOTAL EMPLOYEES COUNT
+2. how many left the company
+3. left company rate value create measure left rate = SUM('HR data'[LEFT CLOUMN])/SUM('HR data'[Employee Count])
+4 Active employees count create measure Active employees = SUM('HR data'[Employee Count])-SUM('HR data'[LEFT CLOUMN])
+5.average age select age coloumn
+6.select pie chart select department+leftcoloumn
+7. select coloumn age band select employcount+gender
+8. ceate condition coloumn under 25 - 1 
+
+
+project 4
+
+Order delivered Data
+Total orders by state wise
+Total Qty by state wise
+Total amount by state wise
+
+page2 - Order cancelled Data
+Total orders by state wise
+Total Qty by state wise
+
+
+
+task1 Total amount = SUM('Order'[Total_amount])
+task2 total orders = COUNT('Order'[Order_ID])
+task3 total Qty = SUM('Order'[Qty])

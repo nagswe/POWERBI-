@@ -1,0 +1,21 @@
+ROLES 
+
+STEP-1 CREATE THE REPORT
+STEP-2 CREATE ROLE IN POWER BI DESKTOP
+       -> MENU -> MODELING-> SECURITY -> MANAGE ROLES
+       -> CREATE ROLE
+       -> ADD FILETRING CONDITION
+       -> OK SAVE
+STEP -3 TEST ROLE IN 'VIEW AS' (MENU --> MODELING-> SECURITY-->)
+STEP-5 SELECT DATASET IN PBS
+STEP-6 DATASET ASSIGN ROLE
+STEP -7 TEST ROLE
+STEP -8 SHARE THE REPORT
+
+
+Total Orders = SUM('Order'[Order_ID])
+CREATE MEASURE Total Qty = SUM('Order'[Qty])
+Total Sales = SUM('Order'[Total_amount])
+Toatal paid = SUMX('Order',[Qty]*[Rate]-'Order'[tax])
+
+lagamev961@kurbieh.com

@@ -1,0 +1,11 @@
+PARAMETER CONCEPT
+
+create measure
+salary = 10000
+
+CREATE MEASURE 
+Incre_salary = [Incrimental value Value]*[salary]
+
+total salary = [salary]+[Incre_salary]
+
+incremental qty = SUM('Order'[Qty])+SUM('Order'[Qty])*[Analysis Qty Value]

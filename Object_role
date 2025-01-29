@@ -1,0 +1,59 @@
+STEP-1 CREATE THE REPORT
+STEP-2 CREATE ROLE IN POWER BI DESKTOP
+       -> MENU -> MODELING-> SECURITY -> MANAGE ROLES
+       -> CREATE ROLE
+       -> ADD FILETRING CONDITION
+       -> OK SAVE
+STEP -3 TEST ROLE IN 'VIEW AS' (MENU --> MODELING-> SECURITY-->)
+STEP-5 SELECT DATASET IN PBS
+STEP-6 DATASET ASSIGN ROLE
+STEP -7 TEST ROLE
+STEP -8 SHARE THE REPORT
+
+
+Total Orders = SUM('Order'[Order_ID])
+CREATE MEASURE Total Qty = SUM('Order'[Qty])
+Total Sales = SUM('Order'[Total_amount])
+Toatal paid = SUMX('Order',[Qty]*[Rate]+'Order'[tax])
+
+DYANAMIC ROLE
+Cat_Name User_name
+AP       NAGESHYEDIDI
+
+[User_name] = USERPRINCIPALNAME()
+
+USERNAME VS USERPRINICIPALNAME
+
+USERNAME
+
+POWER BI DESKTOP : DOMAINAME/USERNAME IT WILL RETURN
+
+POWERBI SERVICE : IT WILL RETURN THE EMAIL ADDRESS OF THE USER
+
+USERPRINICIPALNAME
+
+IN BOTH POWERBI AND POWERBI SERVICE IT WILL THE EMAIL ADDRESS
+
+
+OBJECT LEVEL ROLE
+
+CREATE four SHEETS
+default page
+HOMEWISE 
+PRODUCT WISE
+STATE WISE
+
+RAMU  : he can see all the pages and tabs
+SUBBU : home and product wise
+DEMO : home and state wise info
+
+go to enter data create table
+
+Page_Name         User_ID
+1 Home            User1
+2 Product_Wise    User1   
+3 State_Wise      User1
+4 Home            User2
+5 Product_Wise    User2
+6 Home            User3
+7 State_Wise      User3

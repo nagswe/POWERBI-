@@ -1,0 +1,47 @@
+project 7
+
+empdata
+
+Total employee = COUNT(Emp[EMPNO])
+
+Total sal = SUM(Emp[SAL])
+
+Total paid = SUMX('Emp',Emp[SAL]+[COMM])
+
+total jobs = DISTINCTCOUNT(Emp[JOB])
+
+total dept = DISTINCTCOUNT('DeptTable'[Dname])
+
+task
+cal columns:- exp,total paid
+
+exp year = YEARFRAC(Emp[HIREDATE],TODAY(),1)
+
+exp_month = YEARFRAC(Emp[HIREDATE],TODAY(),1)*12
+
+Total paid1 = Emp[SAL]+[COMM]
+
+create three pages
+home page 
+
+all measure in multicard
+all measure by deptname wise in table
+all measure by job wise in table
+
+Deptname
+
+total employee by deptname
+total paid by deptname
+total job by deptname
+all details in multicard
+
+jobwise analysis
+
+total employee by job name
+total paid by job name
+total job by job name
+all details in multicard
+
+add two buttons report open and close
+add slicer dept names,jobs,employee names
+all pages add buttons:- Back,next,home,dept,job

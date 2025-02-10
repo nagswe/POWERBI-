@@ -1,0 +1,22 @@
+Grocery project
+clean the data
+
+No of rows = COUNTROWS('Grocery Data')
+
+Average rating = AVERAGE('Grocery Data'[Rating])
+
+total sales = SUM('Grocery Data'[Sales])
+
+Avg sales = AVERAGE('Grocery Data'[Sales])
+
+create parameter field for above four formulas
+
+Chart requirements
+
+Total sales by fat content
+total sales by item type
+fatcontains by outlet for total sales
+total slaes by outlet establishment
+sales by outlet size
+sales by outlet location
+all metrics outlet type

@@ -1,0 +1,18 @@
+Sales project
+Load the data
+detecttype the type
+append queries
+fact
+cs customerid to age
+location table Countryname,city,statename
+datetable orderdate select date  year,month,monthname,day
+PRODUCT NAME
+
+TABLE REALTION
+FROM FACT CITY - LOC CITY
+FROM FACT (CUSTOMERID) -CS (CUSTOMERID)
+FROM FACT (PRODUCTNAME) - PROC (PRODUCTNAME)
+FROM LOC  (COUNTRYNAME) - ROLES (COUNTRYNAME)
+
+TOTAL SALES AMOUNT = SUM('FACT'[Sales Amount])
+TOTAL ORDERS = COUNTROWS('FACT')

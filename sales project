@@ -16,3 +16,41 @@ FROM LOC  (COUNTRYNAME) - ROLES (COUNTRYNAME)
 
 TOTAL SALES AMOUNT = SUM('FACT'[Sales Amount])
 TOTAL ORDERS = COUNTROWS('FACT')
+
+Toatal customers = DISTINCTCOUNT(CS[Customer ID])
+
+go to product table
+
+Total Pc =  DISTINCTCOUNT(PROC[ProductCategoryName])
+
+Total Psubc =  DISTINCTCOUNT(PROC[ProductSubCategoryName])
+
+total Products = DISTINCOUNT(Proc[Productname])
+
+
+
+Total customers = DISTINCOUNT (cs[Customer id)
+
+Last Year Sales amount =   CALCULATE([TOTAL SALES AMOUNT],DATEADD('DATE'[OrderDate],-1,YEAR))
+
+This year sales = CALCULATE([TOTAL SALES AMOUNT],DATEADD('DATE'[OrderDate],0,YEAR))
+
+Last month = CALCULATE([TOTAL SALES AMOUNT],DATEADD('DATE'[OrderDate],-1,month))
+
+This month sales = CALCULATE([TOTAL SALES AMOUNT],DATEADD('DATE'[OrderDate],0,month))
+
+last day = CALCULATE([TOTAL SALES AMOUNT],DATEADD('DATE'[OrderDate],-1,day))
+
+this day = CALCULATE([TOTAL SALES AMOUNT],DATEADD('DATE'[OrderDate],0,day))
+
+homepage :Measure:- Total sales,Total Order,CS,Total PC,PSC,P name, Ly sales amount, This years sales,Last month,This month,Last Day and This day					
+
+create hirerachy date,loc,product
+
+create three pages 
+pagename: Location Details home page sales deatails
+6 buttons left arrow right arrow home location product date
+3 tables 1 country details 2 pc details, year details
+
+page2: Product Details
+page3: Datewise Details

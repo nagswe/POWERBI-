@@ -1,0 +1,621 @@
+DAX DAY1
+
+DAX OPERATORS
+
+Airthmetic operators :- create two columns
+
++ : Total paid = Emp[SAL]+Emp[COMM]
+
+ Total paid1 = Emp[SAL]+Emp[COMM]+Emp[DEPTNO] 
+
+Create measure T_sal and total comm and after add the two mesaure
+
+T_sal = SUM(Emp[SAL]) , T_comm = SUM(Emp[COMM]) and after add the two measures Total paid2 = [T_sal]+[T_comm]
+
+- Total paid2 = Emp[SAL]-Emp[COMM]
+
+* Total paid3 = Emp[SAL]*Emp[COMM]
+
+/ Total paid4 = Emp[SAL]/Emp[COMM]
+
+^ EXP = 2^3
+
+Comparison Operators
+Create a function calculate measure select ex1: sal, job, commission ex2: dep, sal, comm
+
+=  Analyst = CALCULATE(SUM(Emp[SAL]),Emp[JOB]="Analyst") 
+
+ex:Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]=30)
+
+Sal30_30 = CALCULATE(SUM(Emp[SAL]),FILTER(Emp,Emp[DEPTNO]=30))
+
+> Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]>30)
+
+< Sal1_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]<30)
+
+>= Sal2_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]>=30)
+
+<= Sal3_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]<=30)
+
+<>  Analyst = CALCULATE(SUM(Emp[SAL]),Emp[JOB]<>"Analyst") Sal_30 = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]<>30)
+
+Text and logical operators
+
+& -> Concatenate two or more value to single
+EX: Concatenate = Emp[ENAME]& "Working as a " &Emp[JOB]
+
+select depno,job,sal,commision
+
+&& Dept_20&clerk_sal = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]=20 && Emp[JOB]="CLERK")
+
+|| Dept_20&clerk_sal = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO]=20 || Emp[JOB]="CLERK")
+
+IN Dept_20&clerk_sal = CALCULATE(SUM(Emp[SAL]),Emp[DEPTNO] IN {10,30})
+
+DAY2
+
+CALENDAR(startdate and end date) CREATE TABLE
+
+DT = CALENDAR("2023-01-01","2023,12,31")
+
+click on new table
+
+DY_DateTable = CALENDAR(MIN(Data[OrderDate]),MAX(Data[OrderDate])) sales data
+
+
+create measure
+
+Current Date = TODAY()
+
+Current Date = TODAY()-1
+
+click table 
+
+Last 10 days DT = CALENDAR(TODAY()-10,TODAY())
+-
+create new layout
+create relation to last 10 days table to data table
+
+select last10 days-date and datatable
+
+CAUTO = CALENDARAUTO()
+FY APL-2023 TO MAR -2024 --FY23
+
+DAY3
+
+DATE YEAR QUATER MONTH DAY
+
+Date:- Single Date
+
+Date(year,month,day)
+
+20-04-2023
+
+create column
+
+Date 1 = DATE(2024,04,20) use cloumn
+
+ CREATE TABLE DT = CALENDAR(DATE(2023,01,01),DATE(2023,12,31)) use table
+
+I want to see the 02-jun-2019 --> qty
+create measure
+
+select table visual select order date and ordr qty
+
+02-jun-2019 = CALCULATE(SUM(Data[OrderQuantity]), FILTER('Data',Data[OrderDate]=DATE(2019,06,02)))
+
+Year :- extracts year from date
+
+CAuto = calendarauto create table
+
+create column these formulas
+
+yyy = YEAR('calender auto'[Date])
+
+yyyy = YEAR(TODAY())
+
+Q-1 --> jan - mar
+Q-2 --> APL-JUN
+Q-3 --> JUL-SEP
+Q-4 --> OCT-DEC
+
+QTR = QUARTER('calender auto'[Date])
+
+MONTH = MONTH('calender auto'[Date]) 
+
+DAY = DAY('calender auto'[Date])
+
+Column = 'calender auto'[Date].[Date]
+
+month_name = FORMAT('calender auto'[Date],"mmm")
+
+Date_id = FORMAT('calender auto'[Date],"YYYYMMDD")
+
+existing orderdate for ordered 
+
+CREATE COLUMN
+
+DID_F = FORMAT('Data'[OrderDate],"YYYYMMDD")
+
+Day_name = FORMAT(cauto[Date],"DDDD")
+
+Created date = DATE(cauto[YYYY],CAUTO[MONTH],CAUTO[DAY])
+
+mmm-yyyy = format(cauto[DATE], "MMM-YY")
+
+Date5 = cauto[day] &"-"&cauto[month]&"-"cauto[yyyy]
+
+
+day4
+
+CREATE TABLE 
+
+DT = CALENDAR(DATE(2023,01,01),DATE(2023,12,31))
+
+month_name = FORMAT('DT'[Date],"mmm")
+
+MONTH = MONTH('DT'[Date])
+
+day = DAY('Date'[Date])
+
+day_name = FORMAT('DT'[Date],"ddd")
+
+weekday = WEEKDAY('Date'[Date],1)
+
+year steps create coloumn
+
+
+mmm-yyyy = FORMAT('DT'[Date],"mmm-yyyy")
+
+yyyymm = FORMAT('DT'[Date],"yyyymm")
+
+weekday and weeknum
+
+weekday : Return the values from 1 to 7 based Day
+
+sun-1
+sat-7
+
+
+DT = CALENDAR("2023-01-01","2023,12,31")
+syntax = weekday(TN[Date_column],1)
+Day_name = FORMAT('Date'[Date],"dddd")
+
+1--> sun_sat
+2--> mon_sun
+3--> tue_mon
+
+Weeknum = Return the values or count no of week in year or find the current week number
+
+week_num = WEEKNUM(DT[Date],1)
+week_num = WEEKNUM(today(),1)
+
+edate = EDATE(TODAY(),0)
+edate = EDATE(TODAY(),1)
+edate = EDATE(TODAY(),-1)
+
+edate = EDATE(TODAY(),-4)
+
+emonth = Eomonth(TODAY(),0)
+
+TODAY = TODAY()-1
+
+TODAY = TODAY()-10
+
+TODAY = TODAY()+1
+
+TODAY = TODAY()+10
+
+NOW = NOW()
+
+UTCTODAY=UTCTODAY()
+
+UTCNOW = UTCNOW()
+
+time = TIME(12,33,20)
+
+hour = HOUR('Data'[now])
+
+
+min = MINUTE('Data'[now])
+
+ss = SECOND('Data'[now])
+
+time1 = TIME('Data'[hour],'Data'[min],'Data'[ss])
+
+DATEVALUE VS TIMEVALUE
+
+"2023-05-03"
+
+DATE_1 = DATE(2023,04,20)
+
+datevalues = DATEVALUE('Data'[DATE_1])
+
+Time IN TEXT = "16:25:45"
+
+Convert time in text to time =
+
+create measure 
+
+Total_qty = SUM('Order'[Qty])
+
+create coloumn
+
+TAmount = [Qty]*[Rate]
+
+CREATE MEASURE
+
+Total sales_sumx =  SUMX('order',[QTY]*[RATE]) 
+
+TOTAL1 = SUMX('Order',[Qty]*[Rate]-'Order'[tax])
+
+create measure 
+
+laptopqty = SUMX(FILTER('Order','Order'[Product Name]="laptop"),[Qty])
+
+qty1 = SUMX('Order',[Qty])
+
+qty1 = SUM('Order',[Qty])
+
+
+
+aggregate functions maximum will be used measures
+
+day 5
+
+MAX : Returns the largest numeric value in a column or between two scalar expressions
+
+create coloumn
+
+ex: max = MAX([Qty])
+
+Data types
+
+Text
+Number
+Date
+Boolean (True/false)
+
+create column
+
+date = SWITCH([Product Name],"laptop",TODAY()-3,"tab",TODAY()-2,"Mobile",TODAY()-1,TODAY())
+
+create column
+Boolean_cn = IF([PName]="laptop",TRUE(),FALSE())
+
+createcolumn
+max1 = MAX('Order'[Qty])
+
+max1 = MAX('Order'[Date])
+
+max2 = MAX('Order'[Product name])
+
+max function is applied for Boolean
+
+
+
+
+MAXA : Returns the largest value in a column
+
+MAXA = MAXA('Order'[Boolean_cn])
+
+
+MAXX : Evaluates an expression for each row of a table and returns the largest numeric value
+
+exp: maxx = MAXX('Order',[Qty]*[Rate]-'Order'[tax])
+
+ MAXX1 = MAXX(FILTER('Order',[PName]="Laptop"),[Qty])
+
+MIN = MIN('Order'[Qty])
+min = MIN('Order'[PName])
+
+
+MINA = mina = MINA('Order'[Qty])
+mina = MINA('Order'[Boolean_cn])
+
+
+MINX = MINX(FILTER('Order',[Product Name]="tab"),[Qty])
+
+average = AVERAGE('Order'[Qty])
+
+
+AVERAGEA = AVERAGEA('Order'[Boolean_cn])
+
+
+AVERAGEX = AVERAGEX(FILTER('Order',[PName]="tab"),[Qty])
+
+count = COUNT('Order'[Qty])
+
+counta = COUNTA('Order'[boolean])
+
+COUNTAX = COUNTAX(FILTER('Order',[State_Id]="ap"),[Boolean_cn])
+
+COUNTBLANK = COUNTBLANK('Order'[Order_ID])
+
+COUNTTROWS = COUNTROWS('Order')
+
+ 
+COUNTX = COUNTX(FILTER('Order',[State_Id]="ap"),[boolean])
+
+
+COUNT = COUNT('Order'[Product Name])
+
+DISTINCOUNT = DISTINCTCOUNT('Order'[PName])
+
+
+DISTINCOUNTNOBLANK = DISTINCTCOUNTNOBLANK('Order'[PName])
+
+CONCATENATE = CONCATENATE('Order'[PName],'Order'[State_Id])
+
+& = [Product Name] & [State_Id]
+
+BOOLEAN = IF('Order'[PName] IN {"LAPTOP","TAB"},TRUE(),FALSE())
+
+PN&BO = CONCATENATE([PName],[BOOLEAN])
+
+CONCATENATEX = CONCATENATEX('Order',[PName],",",[PName],ASC)
+
+
+CREATE TABLE UNIQUE VALUES = USE DISTINCT OR FILETERS OR VALUES
+
+table = distinct(order(productname)
+
+CREATE MEASURE 
+PRODUCTLIST = CONCATENATEX(DISTINCT('Order'[PName]),[PName]," ",[PName],ASC)
+
+state list = CONCATENATEX('Sheet2',[State_id] & "=" & [State Name],",",[State_id],ASC)
+
+COMBINEVALUES1 = COMBINEVALUES(" &" ,"order_id is" & [oid],"p_name" & [PName],"state_id" & [State_Id],"qty" & [Qty],"order_status" & [Order_status]&".")
+
+day6
+
+LEN = LEN('Order'[PName])
+
+LEFT = LEFT('Order'[PName],1)
+
+RIGHT = RIGHT('Order'[PName],3)
+
+MID = MID('Order'[PName],2,4)
+
+TRIM = TRIM("   ROHIT  SHARMA  ")
+
+UPPER = UPPER('Order'[PName])
+
+LOWER = LOWER('Order'[PName])
+
+Column = UPPER(LEFT('Order'[PName],1)&LOWER(RIGHT('Order'[PName],5)))
+
+REPLACE = REPLACE('Order'[PName],2,4,"*")
+
+SUBSTITUTE = SUBSTITUTE('Order'[PName],"a","@")
+
+REPT= REPT("india",3)
+
+SEARCH = SEARCH("b",'Order'[PName],1,0)
+
+FIND = FIND("A",'Order'[Pname],1,0)
+
+UNICHAR = UNICHAR(97)
+
+UNICODE= UNICODE("a")
+
+total_amount = [qty] * [rate]
+
+fixed = FIXED('Order'[Total_amount],0,0)
+
+EXACT = EXACT('Order'[PName],"laptop")
+
+diff = DATEDIFF("1992-08-15",TODAY(),year)
+
+diff1 = DATEDIFF("1995-01-05",TODAY(),month)
+
+diff2 = DATEDIFF("1992-08-15",TODAY(),QUARTER)
+
+diff3 = DATEDIFF("1992-08-15",TODAY(),day)
+
+yearfrac = YEARFRAC("1992-08-15",TODAY(),1)
+
+yearfrac = YEARFRAC("1992-08-15",TODAY(),1)*12
+
+
+Laptop qty = CALCULATE(SUM('Order'[Qty]),'Order'[PName]="laptop")
+
+Laptop qty1 = CALCULATE(SUM('Order'[Qty]),'Order'[PName]="laptop",'Order'[State_Id]="ap")
+
+Laptop qty3 = CALCULATE(SUM('Order'[Qty]),FILTER('Order','Order'[PName]="laptop"))
+
+calculate = CALCULATETABLE('Order')
+
+calculate = CALCULATETABLE('Order','Order'[PName]="laptop")
+
+laptopsales = SUMX(FILTER('Order','Order'[PName]="laptop"),[Qty])
+
+
+laptopsales1 = CALCULATE(SUM('Order'[Qty]),FILTER('Order','Order'[PName]="laptop"))
+
+FILTER = FILTER('Order',[PName]="laptop") table
+ 
+qty tab1  = CALCULATE(SUM('Order'[Qty]),'Order'[Product Name]="tab")
+
+qty tab2 = CALCULATE(SUM('Order'[Qty]),FILTER('Order','Order'[PName]="tab"))
+
+qty tab3 = CALCULATE(SUM('Order'[Qty]),FILTER(ALL('Order'),'Order'[Product Name]="tab"))
+
+lapandtab = CALCULATE([total_amount1],FILTER('Order','Order'[PName] IN {"laptop","tab"}))
+
+CONTAINS = CONTAINS('Order','Order'[PName],"laptop")
+
+CONTAINSTRING = CONTAINSSTRING([PName],"laptop")
+text = UPPER(LEFT('Order'[PName], 1)) & LOWER(MID('Order'[PName], 2, LEN('Order'[PName]) - 1))
+
+
+CONTAINSTRING EXACT = CONTAINSSTRINGEXACT([PName],"LAPTOP")
+
+
+ISBLANK = ISBLANK(BLANK())
+
+ISBLANK = ISBLANK("123")
+
+ISEMPTY = ISEMPTY('Order') 
+
+Table = FILTER('Order','Order'[Product Name]="BUS")
+
+ISEMPTY('TABLE')
+
+Cumulative = [Order_ID]-5
+
+contains  = [Oid]/[Cumulative]
+
+ISERROR = ISERROR('Order'[Contains1])
+
+
+
+ISEVEN = ISEVEN('Order'[Oid])
+
+ISOOD = ISODD('Order'[Oid])
+
+Measure = CALCULATE(SUM('Order'[Qty]),ISODD('Order'[Oid])=TRUE())
+
+DAY11
+
+ISTEXT = ISTEXT("ROHIT")
+
+ISNONTEXT = ISNONTEXT(20) , ISNONTEXT2("KIRAN")
+
+ISNUMBER = ISNUMBER(123) ,ISNUMBER("KIRAN")
+
+USERNAME = USERNAME()
+
+USERPRINICIPALNAME = USERPRINICIPALNAME()
+
+USEROBJECTID = USEROBJECTID()
+
+AND = AND('Order'[PName]="LAPTOP",'Order'[State_Id]="KA")
+
+
+OR = OR('Order'[PName]="LAPTOP",'Order'[State_Id]="KA")
+
+NOT = NOT('Order'[PName]="LAPTOP")
+
+CREATE TABLE USING ENTER DATA
+
+IF = IF('sales'[SALES]>=400,"GOOD","BAD")
+
+IF('Order'[Qty]<10,"LOW",IF('Order'[Qty]>40,"HIGH","MEDIUM"))
+
+GEN = IF('Order'[PName] IN{"LAPTOP","TAB"},"M","F")
+
+GENNAME = IF('Order'[GEN]="M","MALE","FEMALE")
+
+PID = IF('Order'[PName]="MOBILE","MB",IF('Order'[PName]="LAPTOP","LAP",IF('Order'[PName]="TAB","TB","KB")))
+
+
+SWITCH = SWITCH('Order'[PName],"MOBILE","MB","LAPTOP","LAP","TAB","TB","KB")
+
+DATE = CALENDAR(DATE(2022,01,01),TODAY())
+
+MONTH = MONTH([Date])
+
+SWITCH = SWITCH([MONTH],4,1,5,2,6,3,7,4,8,5,9,6,10,7,11,8,12,9,1,10,2,11,3,12)
+
+MOTH_NAME = FORMAT([Date],"MMM")
+
+TOTAL QTY BASED ON STATE_NAME = SWITCH(SELECTEDVALUE(Sheet2[State_id],"AP"),"AP",CALCULATE('Order'[Total_qty],'Order'[State_Id]="ap"),[Total_qty])
+
+OR1 = [Oid]-5
+
+DIVE = [Oid]/[OR1]
+
+IFERROR = IFERROR([DIVE],0)
+
+TRUE = TRUE()
+
+FALSE = FALSE()
+
+BLANK = BLANK()
+
+COALESCE = COALESCE(BLANK(),BLANK(),5,BLANK())
+
+
+Project2 credit card
+
+Total card holders Name = DISTINCTCOUNT('Credit Card Data'[Card Holder Name])
+
+total cards = COUNT('Credit Card Data'[Card Number])
+
+total credit limit = SUM('Credit Card Data'[Credit Limit])
+
+total banks = COUNT(Bank[Bankcode])
+
+total card types = COUNT('CardName Table'[Cardname_ID])
+
+status = IF([Expiry Date]>=TODAY(),"Active","Inactive")
+
+total active cards = CALCULATE(COUNT('Credit Card Data'[Card Number]),FILTER('Credit Card Data','Credit Card Data'[status]="Active"))
+
+total inactive cards = CALCULATE(COUNT('Credit Card Data'[Card Number]),FILTER('Credit Card Data','Credit Card Data'[status]="Inactive"))
+
+total inactive cards = [total cards]-[total active cards]
+
+create date table 
+
+Date table = CALENDAR(MIN('Credit Card Data'[Issue Date]),TODAY()+30)
+
+year = YEAR([Date])
+
+monthid = MONTH([Date])
+
+month name = FORMAT([Date],"mmm")
+
+dayid = DAY([Date])
+
+give markas a table
+
+give relation date to issuedate
+
+new cards = CALCULATE([total cards],FILTER('Date table',[Date]=MAX('Credit Card Data'[Issue Date])))
+
+
+
+BOOKSTORE PROJECT
+
+TOTAL UNIT PRICE = CALCULATE(SUM('Product'[UnitPrice]))
+
+PENQTY = CALCULATE(SUM(Sales[Units]),'Product'[ProductName]="PEN")
+
+TOTAL QTY = CALCULATE(SUM(Sales[Units]))
+
+QTY = [Units]*1.10
+
+CALENDAR AUTO = CALENDARAUTO()
+
+DT = CALENDAR(MIN(Sales[OrderDate]),MAX(Sales[OrderDate]))
+
+pn summary = SUMMARIZECOLUMNS('Product'[ProductName],'Product'[UnitPrice],"total units",SUM(Sales[Units]))
+
+w_data = CALCULATETABLE(Sales,Sales[R_id]="w")
+
+
+
+
+
+CREATE THREE PAGES 
+
+HOME DEPT JOB OPEN CLOSE LEFT RIGHT
+
+VISUALS ADD 
+
+
+
+roles
+
+Total Orders = SUM('Order'[Order_ID])
+CREATE MEASURE Total Qty = SUM('Order'[Qty])
+Total Sales = SUM('Order'[Total_amount])
+Toatal paid = SUMX('Order',[Qty]*[Rate]-'Order'[tax])
+
+
+
+
+
+

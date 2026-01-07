@@ -1,0 +1,9 @@
+Parameters
+
+salary = 10000
+
+incre_salary = [incrimental sal Value]*[salary]
+
+total sal1 = [salary]+[incre_salary]
+
+incremental qty = SUM('Order'[Qty])+SUM('Order'[Qty])*[analysys qty Value]

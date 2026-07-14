@@ -12,6 +12,11 @@ total jobs = DISTINCTCOUNT(Emp[JOB])
 
 total dept = DISTINCTCOUNT('DeptTable'[Dname])
 
+Salary Difference =
+MAX(Emp[SAL]) - MIN(Emp[SAL])
+
+
+
 task
 cal columns:- exp,total paid
 
